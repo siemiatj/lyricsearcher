@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <title>Angular Starter Kit</title>
+  <link rel="stylesheet" href="./css/app.css">
+  <script src="angular.min.js"></script>
+  <script src="../dist/js/app.js"></script>
+</head>
+<body>
+
+<header class="header">
+  <h4>Find the lyrics for the songs you love</h4>
+</header>
+
+<div class="content" ng-controller="searchController as ctrl">
+    <div class="search-input">
+      <input-search
+          items="items" model="ctrl.searchModel.query" placeholder="What's the name of the song?">
+      </input-searchn>
+    </div>
+    <div class="song-lyrics">
+      {{ ctrl.lyrics }}
+    </div>
+  </div>
+</div>
+</body>
+</html>

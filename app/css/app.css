@@ -81,5 +81,5 @@ header h4 {
   padding: 50px;
   max-width: 730px;
   margin: 10px auto 0 auto;
-  white-space: pre-wrap;
+  white-space: pre-line;
 }

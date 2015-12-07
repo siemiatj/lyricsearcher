@@ -2,8 +2,6 @@
 
 /* App Bundle */
 
-'use strict';
-
 require('../../node_modules/angular-bootstrap/ui-bootstrap-tpls');
 require('./services');
 require('./controllers.es6');

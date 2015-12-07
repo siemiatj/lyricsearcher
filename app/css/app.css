@@ -31,9 +31,22 @@ header h4 {
 
 .search-input input {
   padding: 30px;
+  height: 70px;
   color: black;
   border: 1px solid #d8d8d8;
   border-radius: 5px;
+}
+
+.search-input .search-again {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background-color: #26b08f;
+  border-radius: 5px;
+  padding: 4px;
+  line-height: 14px;
+  color: white;
+  cursor: pointer;
 }
 
 .dropdown-menu {
@@ -68,4 +81,5 @@ header h4 {
   padding: 50px;
   max-width: 730px;
   margin: 10px auto 0 auto;
+  white-space: pre-wrap;
 }

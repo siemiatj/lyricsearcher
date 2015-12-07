@@ -12,6 +12,7 @@ class SearchController {
 
     $scope.items = [];
     this.items = [];
+    this.lyrics = null;
   }
 
   _parseData(data) {
@@ -40,6 +41,12 @@ class SearchController {
           $scope.items = [];
         });   
     }
+  }
+
+  reset() {
+    this.$scope.items = [];
+    this.items = [];
+    this.lyrics = null;
   }
 };
 

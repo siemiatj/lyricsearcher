@@ -20,6 +20,7 @@
           items="items" placeholder="What's the name of the song?"
           on-query-change="ctrl.onQueryChange(query)"
           on-select="ctrl.onItemSelect(item, idx)">
+          <span class="search-again" ng-if="ctrl.lyrics" ng-click="ctrl.reset()">Search again</span>
       </input-searchn>
     </div>
     <div class="song-lyrics" ng-show="ctrl.lyrics">

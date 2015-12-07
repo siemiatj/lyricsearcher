@@ -6,11 +6,14 @@ import { debounce } from 'underscore';
 
 const tpl = `
 <div class="form-dropdown" dropdown>
-      <input type="text"
-      class="form-control query-input"
-      dropdown-toggle
-      ng-model="query.val"
-      placeholder="{{ ::placeholder }}">
+  <div class="form-group">
+    <input type="text"
+    class="form-control query-input"
+    dropdown-toggle
+    ng-model="query.val"
+    placeholder="{{ ::placeholder }}">
+    <ng-transclude></ng-transclude>
+  </div>
 
   <ul class="dropdown-menu dropdown-menu-left" role="menu" ng-show="query.val">
     <li ng-repeat="item in getFiltered(items, query.val) track by $index">
@@ -34,6 +37,7 @@ angular.module('app.directives.input-search', [])
       return {
         restrict: 'E',
         template: tpl,
+        transclude: true,
         scope: {
           items: '=',
           placeholder  : '@',

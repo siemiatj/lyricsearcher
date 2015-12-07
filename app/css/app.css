@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #333537 url(../img/logo.png) no-repeat scroll center 50px;
+  height: 190px;
+  text-transform: uppercase;
+}
+
+header h4 {
+  color: #2bab8b;
+  font-size: 20px;
+  padding-top: 130px;
+  text-align: center;
+  margin: 0;
+}
+
+.content {
+  padding-top: 10px;
+  background-color: #eff1f4;
+}
+
+.search-input {
+  border: 1px solid #d8d8d8;
+  position: relative;
+}
+
+.dropdown-menu {
+  max-height: 250px;
+  overflow-y: scroll;
+}
+
+.song-lyrics {
+  background-color: #fff;
+  border: 1px solid #e2e6eb;
+  border-radius: 5px;
+  padding: 50px;
+}

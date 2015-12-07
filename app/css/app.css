@@ -1,6 +1,8 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: monospace;
+  background-color: #eff1f4;
 }
 
 header {
@@ -18,18 +20,45 @@ header h4 {
 }
 
 .content {
-  padding-top: 10px;
-  background-color: #eff1f4;
+  padding-top: 20px;
 }
 
 .search-input {
-  border: 1px solid #d8d8d8;
   position: relative;
+  max-width: 730px;
+  margin: 0 auto;
+}
+
+.search-input input {
+  padding: 30px;
+  color: black;
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
 }
 
 .dropdown-menu {
   max-height: 250px;
+  width: 100%;
   overflow-y: scroll;
+  padding: 0;
+}
+
+.dropdown-menu li {
+  text-align: left;
+}
+
+.dropdown-menu .empty-item {
+  padding: 20px 12px;
+}
+
+.dropdown-menu li a {
+  padding: 20px 12px;
+  border-top: 1px solid #e7e9eb;
+}
+
+.dropdown-menu li a:hover {
+  color: white;
+  background-color: #26b08f;
 }
 
 .song-lyrics {
@@ -37,4 +66,6 @@ header h4 {
   border: 1px solid #e2e6eb;
   border-radius: 5px;
   padding: 50px;
+  max-width: 730px;
+  margin: 10px auto 0 auto;
 }

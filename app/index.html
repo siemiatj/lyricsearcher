@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Angular Starter Kit</title>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/app.css">
   <script src="angular.min.js"></script>
   <script src="../dist/js/app.js"></script>
@@ -16,10 +17,12 @@
 <div class="content" ng-controller="searchController as ctrl">
     <div class="search-input">
       <input-search
-          items="items" model="ctrl.searchModel.query" placeholder="What's the name of the song?">
+          items="items" placeholder="What's the name of the song?"
+          on-query-change="ctrl.onQueryChange(query)"
+          on-select="ctrl.onItemSelect(item, idx)">
       </input-searchn>
     </div>
-    <div class="song-lyrics">
+    <div class="song-lyrics" ng-show="ctrl.lyrics">
       {{ ctrl.lyrics }}
     </div>
   </div>

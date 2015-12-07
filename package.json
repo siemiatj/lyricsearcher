@@ -7,15 +7,14 @@
     "url": "https://github.com/siemiatj/lyricsearcher.git"
   },
   "devDependencies": {
-    "babel-core": "^6.3.13",
-    "babel-loader": "^6.2.0",
-    "phantomjs": "^1.9.19",
+    "angular": "^1.4.8",
+    "angular-bootstrap": "^0.12.2",
+    "angular-mocks": "^1.4.8",
+    "babel-core": "^5.1.11",
+    "babel-loader": "^5.0.0",
+    "bootstrap": "^3.3.6",
     "chai": "^3.4.1",
     "chai-as-promised": "^5.1.0",
-    "angular": "^1.4.8",
-    "angular-mocks": "^1.4.8",
-    "bootstrap": "^3.3.6",
-    "angular-bootstrap": "^0.12.2",
     "express": "^4.13.3",
     "grunt": "^0.4.5",
     "grunt-concurrent": "^2.1.0",
@@ -36,6 +35,7 @@
     "load-grunt-configs": "^0.4.3",
     "load-grunt-tasks": "^3.3.0",
     "mocha": "^2.3.4",
+    "phantomjs": "^1.9.19",
     "q": "^1.4.0",
     "request": "^2.67.0",
     "requirejs": "^2.1.22",
@@ -45,7 +45,7 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "babel-runtime": "^6.2.0",
+    "babel-runtime": "^5.1.11",
     "debug": "^2.2.0"
   }
 }

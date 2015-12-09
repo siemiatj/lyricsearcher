@@ -17,7 +17,9 @@
 <div class="content" ng-controller="searchController as ctrl">
     <div class="search-input">
       <input-search
-          items="items" placeholder="What's the name of the song?"
+          items="items" 
+          placeholder="What's the name of the song?"
+          model="query"
           on-query-change="ctrl.onQueryChange(query)"
           on-select="ctrl.onItemSelect(item, idx)">
           <span class="search-again" ng-if="ctrl.lyrics" ng-click="ctrl.reset()">Search again?</span>

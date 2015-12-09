@@ -10,13 +10,13 @@ const tpl = `
     <input type="text"
     class="form-control query-input"
     dropdown-toggle
-    ng-model="query.val"
+    ng-model="model.val"
     placeholder="{{ ::placeholder }}">
     <ng-transclude></ng-transclude>
   </div>
 
-  <ul class="dropdown-menu dropdown-menu-left" role="menu" ng-show="query.val">
-    <li ng-repeat="item in getFiltered(items, query.val) track by $index">
+  <ul class="dropdown-menu dropdown-menu-left" role="menu" ng-show="model.val">
+    <li ng-repeat="item in getFiltered(items, model.val) track by $index">
       <a href="" 
       ng-click="select(item, $index)" 
       ng-class="{ selected: selectedValue == item }" 
@@ -39,7 +39,8 @@ angular.module('app.directives.input-search', [])
         template: tpl,
         transclude: true,
         scope: {
-          items: '=',
+          items        : '=',
+          model        : '=?',
           placeholder  : '@',
           onSelect     : '&',
           onQueryChange: '&',
@@ -49,7 +50,6 @@ angular.module('app.directives.input-search', [])
           scope.placeholder = scope.placeholder || 'Select...';
           scope.onSelect    = scope.onSelect || angular.noop;
           scope.onQueryChange = scope.onQueryChange || angular.noop;
-          scope.query = { val: scope.selectedValue || '' };
 
           scope.getFiltered       || (scope.getFiltered = (items, query) => {
             query = query.toLowerCase();
@@ -60,8 +60,8 @@ angular.module('app.directives.input-search', [])
           });
 
           scope.formatItem = function (item) {
-            const queryLen = scope.query.val.length;
-            const startIndex = item.indexOf(scope.query.val);
+            const queryLen = scope.model.val.length;
+            const startIndex = item.indexOf(scope.model.val);
 
             if (queryLen === 0 || startIndex === -1) {
               return $sce.trustAsHtml(item);
@@ -75,14 +75,13 @@ angular.module('app.directives.input-search', [])
           };
 
           scope.select = function (val, idx) {
-            $timeout(function() {
-              element.find('input').val(val);
-            }, 0, false);
-            scope.onSelect({ selected: val, idx: idx });
-            scope.query.val = '';
+            if (scope.model) {
+              scope.model.val = val;
+            }
+            scope.onSelect({ item: val, idx: idx });
           };
 
-          scope.$watch('query.val', debounce(function (query, queryOld) {
+          scope.$watch('model.val', debounce(function (query, queryOld) {
 
             if (query === queryOld) return;
             scope.onQueryChange({ query: query });

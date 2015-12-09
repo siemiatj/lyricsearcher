@@ -7,6 +7,7 @@ describe('Input search directive', function () {
   function createAndCompileEl(scope) {
     var el = angular.element('<input-search \
       items="items" \
+      model="query" \
       placeholder="{{ placeholder }}" \
       on-query-change="queryChangeHandler(query)"> \
     </input-search>');
@@ -25,6 +26,7 @@ describe('Input search directive', function () {
 
   it('should render correctly', function () {
     $rootScope.items = [];
+    $rootScope.query = {val: ''};
     $rootScope.placeholder = 'Some placeholder';
 
     var el = createAndCompileEl($rootScope)[0];
@@ -37,6 +39,7 @@ describe('Input search directive', function () {
 
   it('should show a list of available items', function () {
     $rootScope.items = ['One', 'Two', 'Three'];
+    $rootScope.query = {val: ''};
     var el = createAndCompileEl($rootScope);
 
     var input = angular.element(el[0].querySelector('input'));
@@ -47,22 +50,24 @@ describe('Input search directive', function () {
 
   it('should display nur visible items', function () {
     $rootScope.items = [];
+    $rootScope.query = {val: ''};
     var el = createAndCompileEl($rootScope);
     var scope = el.isolateScope();
 
     scope.items = ['One', 'Two', 'Three'];
-    scope.query.val = 'one';
+    scope.model.val = 'one';
     scope.$digest();
     expect(el[0].querySelectorAll('.dropdown-menu li:not(.empty-item)').length).to.equal(1);
   });
 
   it('should format tags accordingly with a query', function () {
     $rootScope.items = [];
+    $rootScope.query = {val: ''};
     var el = createAndCompileEl($rootScope);
     var scope = el.isolateScope();
 
     scope.items = ['One', 'Onero', 'Two'];
-    scope.query.val = 'One';
+    scope.model.val = 'One';
     scope.$digest();
 
     var itemsListEl = el[0].querySelector('.dropdown-menu');

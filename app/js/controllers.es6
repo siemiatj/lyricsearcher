@@ -11,6 +11,9 @@ class SearchController {
     const { $scope, lyricsService} = this;
 
     $scope.items = [];
+    $scope.query = {
+      'val': ''
+    };
     this.items = [];
     this.lyrics = null;
   }
@@ -47,6 +50,7 @@ class SearchController {
     this.$scope.items = [];
     this.items = [];
     this.lyrics = null;
+    this.$scope.query.val = '';
   }
 };
 
